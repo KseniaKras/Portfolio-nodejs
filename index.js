@@ -48,7 +48,8 @@ app.post('/send', async function (req, res) {
     res.send("ok")
 })
 
-const server = app.listen(process.env.PORT || 5000, () => {
+const PORT = process.env.PORT || 5000
+const server = app.listen(PORT, () => {
     const port = server.address().port;
     console.log(server.address())
     console.log(`Express is working on port ${port}`);
