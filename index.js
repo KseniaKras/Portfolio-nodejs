@@ -54,3 +54,8 @@ const server = app.listen(PORT, () => {
     console.log(server.address())
     console.log(`Express is working on port ${port}`);
 })
+
+server.on('clientError', (err, socket) => {
+    console.error(err);
+    socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
+});
